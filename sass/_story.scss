@@ -1,0 +1,88 @@
+.story {
+
+    &__photo {
+        background-image: linear-gradient(rgba($color-primary, .5), rgba($color-primary, .5)), url(../img/back.jpg);
+        background-size: cover;
+
+        grid-column: full-start / col-end 4;
+
+        display: grid;  //to then position the pictures in the grid
+
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+
+        align-items: center;    //to align the pictures within their grid area because pictures due to their ratio cannot be stretch
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: 1 / -1;
+            padding: 5rem;
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            padding: 5rem 5rem 2rem 5rem;
+        }
+    }
+
+    &__img--1 {
+        width: 100%;
+        box-shadow: 0 2rem 5rem rgba(#000, .1);
+
+        grid-row: 2 / 6;
+        grid-column: 2 / 6;
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: 1 / 5;
+            grid-row: 1 / -1;
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+            grid-row: 1 / 5;
+            grid-column: 1 / -1;
+        }
+    }
+
+    &__img--2 {
+        width: 115%;
+        box-shadow: 0 2rem 5rem rgba(#000, .2);
+
+        grid-row: 4 / 6;
+        grid-column: 4 / 7;
+
+        z-index: 2;     //to ensure this picture is on top of the other (img--1)
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-row: 1 / -1;
+            width: 100%;
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+            grid-row: 4 / 7;
+            grid-column: 2 / -1;
+        }
+    }
+
+    &__content {
+        padding: 6rem 8vw;
+        background-color: $color-grey-light-1;
+
+        grid-column: col-start 5 / full-end;
+
+        display: flex;      //to vertically align the items within the box
+        flex-direction: column;
+        justify-content: center;
+
+        //alternative with CSS grid with --> display: grid; + align-content: center; + justify-items: start;
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: 1 / -1;
+            grid-row: 5 / 6;
+        }
+    }
+
+    &__text {
+        font-size: 1.5rem;
+        font-style: italic;
+    }
+}

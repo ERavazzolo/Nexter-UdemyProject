@@ -1,0 +1,64 @@
+.header {
+    background-image: linear-gradient(rgba($color-secondary, .93), rgba($color-secondary, .93)), url(../img/hero.jpeg);
+    background-size: cover;
+    background-position: center;
+    padding: 8rem;
+    padding-top: 4rem;
+
+    grid-column: full-start / col-end 6;
+
+    display: grid;   //to position header text within the area
+    grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr repeat(2, min-content);
+    grid-template-columns: minmax(min-content, max-content);     //only need 1 column
+    grid-gap: 1.5rem;
+    justify-content: center;    //to center the header grid inside the header
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 5rem;
+    }
+
+    &__logo {
+        height: 3rem;
+        justify-self: center;
+    }
+
+    &__btn {
+        justify-self: start;
+    }
+
+    &__seenon-text {
+        color: $color-grey-light-2;
+        font-size: 1.6rem;
+
+        display: grid;      //to position and align text, before and after
+        grid-template-columns: 1fr max-content 1fr;
+        align-items: center;
+        grid-column-gap: 1.5rem;
+
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            background-color: currentColor;
+            height: 1px;
+        }
+    }
+
+    &__seenon-logos {
+        display: grid;  //to position the logos
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 3rem;   //to create space between the logos
+        justify-items: center;
+        align-items: center;
+
+        img {
+            max-width: 100%;
+            max-height: 2.5rem;
+            filter: brightness(70%);
+        }
+    }
+}
