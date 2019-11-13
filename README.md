@@ -15,7 +15,7 @@ Nexter is a landing page designed by Jonas Schmedtmann for a real estate agency 
 - CSS3/SCSS
 
 ## Run Locally
-- Run `git clone https://github.com/ERavazzolo/Trillo-UdemyProject.git`
+- Run `git clone https://github.com/ERavazzolo/Nexter-UdemyProject.git`
 - Run `npm install`
 - Run `npm start`
 
